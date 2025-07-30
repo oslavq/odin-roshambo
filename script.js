@@ -12,7 +12,7 @@ function playRound(humanChoice, computerChoice) {
                     computerScore++;
                     break;
                 case "scissors":
-                    humanScore--;
+                    humanScore++
                     break;
             }
             break;
