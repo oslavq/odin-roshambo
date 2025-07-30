@@ -2,47 +2,78 @@ console.log("Hello World!");
 let humanScore = 0;
 let computerScore = 0;
 
+function playGame() {
+    for (let i = 1; i <= 5; i++) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+
+        let winner = playRound(humanChoice, computerChoice);
+        console.log(`Computer's choice: ${computerChoice}`)
+        if (winner === "human") {
+            console.log(`Congratulations, human! You won round Nu.${i}`);
+        } else if (winner === "computer") {
+            console.log(`Oops, you've lost round Nu.${i}`)
+        } else {
+            console.log(`Seems like we got a draw on round Num.${i}!`)
+        }
+    }
+    console.log(`Scores:\nHuman:\t${humanScore}\nComputer:\t${computerScore}`);
+}
+
 function playRound(humanChoice, computerChoice) {
+    let winner;
+
     switch (humanChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
                     break;
                 case "paper":
-                    computerScore++;
+                    winner = computerWins();
                     break;
                 case "scissors":
-                    humanScore++
+                    winner = humanWins();
                     break;
             }
             break;
         case "paper":
             switch (computerChoice) {
                 case "rock":
-                    humanScore++;
+                    winner = humanWins();
                     break;
                 case "paper":
                     break;
                 case "scissors":
-                    computerScore++;
+                    winner = computerWins();
                     break;
             }
             break;
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    computerScore++;
+                    winner = computerWins();
                     break;
                 case "paper":
-                    humanScore++;
+                    winner = humanWins();
                     break;
                 case "scissors":
                     break;
             }
             break;
     };
+
+    return winner;
 }
 
+function computerWins() {
+    computerScore++;
+    return "computer";
+}
+
+function humanWins() {
+    humanScore++;
+    return "human";
+}
 
 // returns "rock", "paper" or "scissors" randomly
 function getComputerChoice() {
