@@ -41,3 +41,8 @@ function testComputerChoice() {
 
     console.log(`We got rock ${var1} times, paper ${var2} times and scissors ${var3} times!`);
 }
+
+function getHumanChoice() {
+    let humanInput = prompt("Please choose rock, paper or scissors:").toLowerCase();
+    return humanInput;
+}
