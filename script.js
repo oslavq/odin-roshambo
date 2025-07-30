@@ -1,4 +1,48 @@
 console.log("Hello World!");
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    switch (humanChoice) {
+        case "rock":
+            switch (computerChoice) {
+                case "rock":
+                    break;
+                case "paper":
+                    computerScore++;
+                    break;
+                case "scissors":
+                    humanScore--;
+                    break;
+            }
+            break;
+        case "paper":
+            switch (computerChoice) {
+                case "rock":
+                    humanScore++;
+                    break;
+                case "paper":
+                    break;
+                case "scissors":
+                    computerScore++;
+                    break;
+            }
+            break;
+        case "scissors":
+            switch (computerChoice) {
+                case "rock":
+                    computerScore++;
+                    break;
+                case "paper":
+                    humanScore++;
+                    break;
+                case "scissors":
+                    break;
+            }
+            break;
+    };
+}
+
 
 // returns "rock", "paper" or "scissors" randomly
 function getComputerChoice() {
