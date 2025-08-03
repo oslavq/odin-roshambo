@@ -121,3 +121,34 @@ function getHumanChoiceViaConsole() {
     let humanInput = prompt("Please choose rock, paper or scissors:").toLowerCase();
     return humanInput;
 }
+
+
+// Code for the GUI
+const playerSelection = document.querySelector(".player-selection");
+
+function playGame(e) {
+    const computerChoice = getComputerChoice();
+    const humanChoice = parseGuiInput(e);
+}
+
+function parseGuiInput(e) {
+    const selectedBtnId = e.target.classList[0];
+    let parsedChoice;
+
+    switch (selectedBtnId) {
+        case ("rock-player-btn"):
+            parsedChoice = "rock";
+            break;
+        case ("paper-player-btn"):
+            parsedChoice = "paper";
+            break;
+        case ("scissors-player-btn"):
+            parsedChoice = "scissors";
+            break;
+    }
+    
+    console.log(`Player selected ${parsedChoice}`);
+    return parsedChoice;
+}
+
+playerSelection.addEventListener('click', playGame);
