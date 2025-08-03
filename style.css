@@ -61,11 +61,11 @@ header {
 
 .rps-selection {
     margin: auto;
-    margin: 12px 0 48px;
+    margin: 12px auto 48px;
     display: flex;
     justify-content: center;
     gap: 16px;
-    padding: 0 10%;
+    width: max-content;
 }
 
 .choice-btn {
