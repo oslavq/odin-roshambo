@@ -102,3 +102,10 @@ header {
     color: red;
     border-color: red;
 }
+
+/* used on a tie */
+.choice-selected {
+    font-weight: 600;
+    border-color: black;
+    border-width: 3px;
+}
