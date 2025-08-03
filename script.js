@@ -135,6 +135,9 @@ const playerSelection = document.querySelector(".player-selection");
 const textOutput = document.querySelector(".game-text");
 const computerChoiceDiv = document.querySelector(".computer-choice");
 
+const humanScoreCounter = document.querySelector(".hscore-counter");
+const computerScoreCounter = document.querySelector(".cscore-counter");
+
 const successClass = "choice-success";
 const failureClass = "choice-failure";
 const tieClass = "choice-selected";
@@ -145,6 +148,7 @@ function playGame(e) {
     const winner = playRound(humanChoice, computerChoice);
     console.log(`winner = ${winner}`);
     revealResult(winner, humanChoice, computerChoice);
+    updateCounter();
 }
 
 function parseGuiInput(e) {
@@ -192,4 +196,9 @@ function revealResult(winner, humanChoice, computerChoice) {
     }
 
     computerChoiceDiv.style.display = "block";
+}
+
+function updateCounter() {
+    humanScoreCounter.textContent = humanScore;
+    computerScoreCounter.textContent = computerScore;
 }
