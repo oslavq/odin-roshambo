@@ -132,10 +132,19 @@ function getHumanChoiceViaConsole() {
 
 // Code for the GUI
 const playerSelection = document.querySelector(".player-selection");
+const textOutput = document.querySelector(".game-text");
+const computerChoiceDiv = document.querySelector(".computer-choice");
+
+const successClass = "choice-success";
+const failureClass = "choice-failure";
+const tieClass = "choice-selected";
 
 function playGame(e) {
     const computerChoice = getComputerChoice();
     const humanChoice = parseGuiInput(e);
+    const winner = playRound(humanChoice, computerChoice);
+    console.log(`winner = ${winner}`);
+    revealResult(winner, humanChoice, computerChoice);
 }
 
 function parseGuiInput(e) {
@@ -154,8 +163,33 @@ function parseGuiInput(e) {
             break;
     }
     
-    console.log(`Player selected ${parsedChoice}`);
+    // console.log(`Player selected ${parsedChoice}`);
     return parsedChoice;
 }
 
 playerSelection.addEventListener('click', playGame);
+
+function revealResult(winner, humanChoice, computerChoice) {
+    const activeHumanBtn = document.querySelector(`.${humanChoice}-player-btn`);
+    let activeComputerIndicator = document.querySelector(`.${computerChoice}-comp-indicator`);
+    
+    switch (winner) {
+        case ("computer"):
+            activeHumanBtn.classList.add(failureClass);
+            activeComputerIndicator.classList.add(successClass);
+            textOutput.textContent = "Oops, you've lost!";
+            break;
+        case ("human"):
+            activeHumanBtn.classList.add(successClass);
+            activeComputerIndicator.classList.add(failureClass);
+            textOutput.textContent = "Congrats on the win!";
+            break;
+        case ("tie"):
+            activeHumanBtn.classList.add(tieClass);
+            activeComputerIndicator.classList.add(tieClass);
+            textOutput.textContent = "It's a tie!";
+            break;
+    }
+
+    computerChoiceDiv.style.display = "block";
+}
