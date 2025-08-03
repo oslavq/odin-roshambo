@@ -78,6 +78,10 @@ header {
     border-radius: 6px;
 }
 
+.player-selection .choice-btn {
+    cursor: pointer;
+}
+
 /* will be permanently revealed after first player choice */
 .computer-choice {
     display: none;
