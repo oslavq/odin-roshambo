@@ -147,6 +147,7 @@ function playGame(e) {
     const humanChoice = parseGuiInput(e);
     const winner = playRound(humanChoice, computerChoice);
     console.log(`winner = ${winner}`);
+    clearStyles();
     revealResult(winner, humanChoice, computerChoice);
     updateCounter();
 }
