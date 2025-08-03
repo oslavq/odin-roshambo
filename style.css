@@ -8,7 +8,7 @@ p {
     margin: 0;
 }
 
-span.divisor {
+.divisor-vertical {
     width: 0;
     border: 0.5px solid gray;
     box-sizing: border-box;
@@ -42,4 +42,44 @@ header {
 .score-container .counter-title {
     font-size: 8px;
     font-weight: 200;
+}
+
+
+/* GAME WINDOW */
+.game {
+
+}
+
+.game * {
+    text-align: center;
+}
+
+.game-text {
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.rps-selection {
+    margin: auto;
+    margin: 12px 0 48px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 10%;
+}
+
+.rps-selection button,
+.rps-selection div {
+    background-color: rgb(232, 232, 232);
+    border: 2px solid gray;
+    color: black;
+    font-size: 18px;
+    padding: 18px;
+    flex: 1 1 0;
+    border-radius: 6px;
+}
+
+/* will be permanently revealed after first player choice */
+.computer-choice {
+    display: none;
 }
