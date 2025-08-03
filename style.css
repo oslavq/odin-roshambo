@@ -82,3 +82,19 @@ header {
 .computer-choice {
     display: none;
 }
+
+
+/* FAILURE & SUCCESS */
+/* will be added to .choice-btn via JavaScript */
+
+.choice-success {
+    font-weight: 600;
+    color: green;
+    border-color: green;
+}
+
+.choice-failure {
+    font-weight: 600;
+    color: red;
+    border-color: red;
+}
