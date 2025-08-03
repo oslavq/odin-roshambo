@@ -2,7 +2,7 @@ console.log("Hello World!");
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame() {
+function playGameViaConsole() {
     for (let i = 1; i <= 5; i++) {
         let computerChoice = getComputerChoice();
         let humanChoice = getHumanChoice();
