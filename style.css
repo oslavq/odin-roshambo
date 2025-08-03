@@ -68,8 +68,7 @@ header {
     padding: 0 10%;
 }
 
-.rps-selection button,
-.rps-selection div {
+.choice-btn {
     background-color: rgb(232, 232, 232);
     border: 2px solid gray;
     color: black;
