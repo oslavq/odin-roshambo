@@ -27,6 +27,7 @@ function playRound(humanChoice, computerChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
+                    winner = tie();
                     break;
                 case "paper":
                     winner = computerWins();
@@ -42,6 +43,7 @@ function playRound(humanChoice, computerChoice) {
                     winner = humanWins();
                     break;
                 case "paper":
+                    winner = tie();
                     break;
                 case "scissors":
                     winner = computerWins();
@@ -57,6 +59,7 @@ function playRound(humanChoice, computerChoice) {
                     winner = humanWins();
                     break;
                 case "scissors":
+                    winner = tie();
                     break;
             }
             break;
@@ -73,6 +76,10 @@ function computerWins() {
 function humanWins() {
     humanScore++;
     return "human";
+}
+
+function tie() {
+    return "tie";
 }
 
 // returns "rock", "paper" or "scissors" randomly
