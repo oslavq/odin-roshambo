@@ -202,3 +202,12 @@ function updateCounter() {
     humanScoreCounter.textContent = humanScore;
     computerScoreCounter.textContent = computerScore;
 }
+
+function clearStyles() {
+    let buttons = document.querySelectorAll(".choice-btn");
+    buttons.forEach((el) => {
+        el.classList.remove(successClass);
+        el.classList.remove(failureClass);
+        el.classList.remove(tieClass);
+    });
+}
