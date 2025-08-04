@@ -248,6 +248,7 @@ function concludeGame(winner) {
 
 function restartGame() {
     clearStyles();
+    textOutput.textContent = "Welcome again!";
     humanScore = 0;
     computerScore = 0;
     updateCounter();
@@ -255,6 +256,7 @@ function restartGame() {
     header.classList.remove("header-loss");
     computerChoiceDiv.style.display = "none";
     gameActive = true;
+    playAgain.style.display = "none";
     playerSelection.childNodes.forEach((child) => {
         if (child.nodeType === 1) child.classList.add("active-cursor");
     });
