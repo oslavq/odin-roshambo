@@ -46,6 +46,14 @@ header {
 
 
 /* GAME WINDOW */
+.game {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+    padding: 0 15%;
+    gap: 24px;
+}
+
 .game * {
     text-align: center;
 }
@@ -56,12 +64,10 @@ header {
 }
 
 .rps-selection {
-    margin: auto;
-    margin: 12px auto 48px;
     display: flex;
     justify-content: center;
     gap: 16px;
-    width: max-content;
+    margin-top: 12px;
 }
 
 .choice-btn {
@@ -72,6 +78,7 @@ header {
     padding: 18px;
     flex: 1 1 0;
     border-radius: 6px;
+    max-width: 150px;
 }
 
 .active-cursor {
