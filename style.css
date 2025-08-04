@@ -109,3 +109,12 @@ header {
     border-color: black;
     border-width: 3px;
 }
+
+/* will be applied to header */
+.header-win {
+    background-color: green;
+}
+
+.header-loss {
+    background-color: rgb(177, 1, 1);
+}

@@ -1,6 +1,7 @@
 console.log("Hello World!");
 let humanScore = 0;
 let computerScore = 0;
+let gameActive = true;
 
 function playGameViaConsole() {
     for (let i = 1; i <= 5; i++) {
@@ -134,6 +135,7 @@ function getHumanChoiceViaConsole() {
 const playerSelection = document.querySelector(".player-selection");
 const textOutput = document.querySelector(".game-text");
 const computerChoiceDiv = document.querySelector(".computer-choice");
+const header = document.querySelector("header");
 
 const humanScoreCounter = document.querySelector(".hscore-counter");
 const computerScoreCounter = document.querySelector(".cscore-counter");
@@ -143,6 +145,10 @@ const failureClass = "choice-failure";
 const tieClass = "choice-selected";
 
 function playGame(e) {
+    if (!gameActive) {
+        textOutput.textContent = "The game has been finished! You may choose to play again";
+        return;
+    }
     const computerChoice = getComputerChoice();
     const humanChoice = parseGuiInput(e);
     const roundResult = playRound(humanChoice, computerChoice);
@@ -150,6 +156,8 @@ function playGame(e) {
     clearStyles();
     revealResult(roundResult, humanChoice, computerChoice);
     updateCounter();
+    if (computerScore >= 5) concludeGame("computer");
+    if (humanScore >= 5) concludeGame("human");
 }
 
 function parseGuiInput(e) {
@@ -211,4 +219,19 @@ function clearStyles() {
         el.classList.remove(failureClass);
         el.classList.remove(tieClass);
     });
+}
+
+function concludeGame(winner) {
+    switch (winner) {
+        case ("computer"):
+            textOutput.textContent = "The computer won the game!";
+            header.classList.add("header-loss");
+            break;
+        case ("human"):
+            textOutput.textContent = "You won the game!"
+            header.classList.add("header-win");
+            break;
+    }
+
+    gameActive = false;
 }
