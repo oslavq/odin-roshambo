@@ -7,11 +7,11 @@ function playGameViaConsole() {
         let computerChoice = getComputerChoice();
         let humanChoice = getHumanChoice();
 
-        let winner = playRound(humanChoice, computerChoice);
+        let roundResult = playRound(humanChoice, computerChoice);
         console.log(`Computer's choice: ${computerChoice}`)
-        if (winner === "human") {
+        if (roundResult === "human") {
             console.log(`Congratulations, human! You won round Nu.${i}`);
-        } else if (winner === "computer") {
+        } else if (roundResult === "computer") {
             console.log(`Oops, you've lost round Nu.${i}`)
         } else {
             console.log(`Seems like we got a draw on round Num.${i}!`)
@@ -21,51 +21,51 @@ function playGameViaConsole() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    let winner;
+    let roundResult;
 
     switch (humanChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    winner = tie();
+                    roundResult = tie();
                     break;
                 case "paper":
-                    winner = computerWins();
+                    roundResult = computerWins();
                     break;
                 case "scissors":
-                    winner = humanWins();
+                    roundResult = humanWins();
                     break;
             }
             break;
         case "paper":
             switch (computerChoice) {
                 case "rock":
-                    winner = humanWins();
+                    roundResult = humanWins();
                     break;
                 case "paper":
-                    winner = tie();
+                    roundResult = tie();
                     break;
                 case "scissors":
-                    winner = computerWins();
+                    roundResult = computerWins();
                     break;
             }
             break;
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    winner = computerWins();
+                    roundResult = computerWins();
                     break;
                 case "paper":
-                    winner = humanWins();
+                    roundResult = humanWins();
                     break;
                 case "scissors":
-                    winner = tie();
+                    roundResult = tie();
                     break;
             }
             break;
     };
 
-    return winner;
+    return roundResult;
 }
 
 function computerWins() {
@@ -145,10 +145,10 @@ const tieClass = "choice-selected";
 function playGame(e) {
     const computerChoice = getComputerChoice();
     const humanChoice = parseGuiInput(e);
-    const winner = playRound(humanChoice, computerChoice);
-    console.log(`winner = ${winner}`);
+    const roundResult = playRound(humanChoice, computerChoice);
+    console.log(`Winner = ${roundResult}`);
     clearStyles();
-    revealResult(winner, humanChoice, computerChoice);
+    revealResult(roundResult, humanChoice, computerChoice);
     updateCounter();
 }
 
@@ -174,11 +174,11 @@ function parseGuiInput(e) {
 
 playerSelection.addEventListener('click', playGame);
 
-function revealResult(winner, humanChoice, computerChoice) {
+function revealResult(roundResult, humanChoice, computerChoice) {
     const activeHumanBtn = document.querySelector(`.${humanChoice}-player-btn`);
     let activeComputerIndicator = document.querySelector(`.${computerChoice}-comp-indicator`);
     
-    switch (winner) {
+    switch (roundResult) {
         case ("computer"):
             activeHumanBtn.classList.add(failureClass);
             activeComputerIndicator.classList.add(successClass);
