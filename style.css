@@ -90,10 +90,6 @@ header {
     display: none;
 }
 
-.game-info {
-    margin: 0 auto 42px;
-}
-
 
 /* FAILURE & SUCCESS */
 /* will be added to .choice-btn via JavaScript */
