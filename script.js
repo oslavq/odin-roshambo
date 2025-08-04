@@ -136,6 +136,7 @@ const playerSelection = document.querySelector(".player-selection");
 const textOutput = document.querySelector(".game-text");
 const computerChoiceDiv = document.querySelector(".computer-choice");
 const header = document.querySelector("header");
+const playAgain = document.querySelector(".play-again");
 
 const humanScoreCounter = document.querySelector(".hscore-counter");
 const computerScoreCounter = document.querySelector(".cscore-counter");
@@ -181,6 +182,7 @@ function parseGuiInput(e) {
 }
 
 playerSelection.addEventListener('click', playGame);
+playAgain.addEventListener('click', restartGame);
 
 function revealResult(roundResult, humanChoice, computerChoice) {
     const activeHumanBtn = document.querySelector(`.${humanChoice}-player-btn`);
@@ -234,4 +236,16 @@ function concludeGame(winner) {
     }
 
     gameActive = false;
+    playAgain.style.display = "inline-block";
+}
+
+function restartGame() {
+    clearStyles();
+    humanScore = 0;
+    computerScore = 0;
+    updateCounter();
+    header.classList.remove("header-win");
+    header.classList.remove("header-loss");
+    computerChoiceDiv.style.display = "none";
+    gameActive = true;
 }

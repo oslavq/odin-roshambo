@@ -56,7 +56,7 @@ header {
 
 .game-text {
     margin-top: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .rps-selection {
@@ -85,6 +85,10 @@ header {
 /* will be permanently revealed after first player choice */
 .computer-choice {
     display: none;
+}
+
+.game-info {
+    margin: 0 auto 42px;
 }
 
 
@@ -117,4 +121,10 @@ header {
 
 .header-loss {
     background-color: rgb(177, 1, 1);
+}
+
+
+/* OTHER */
+.play-again {
+    display: none;
 }
