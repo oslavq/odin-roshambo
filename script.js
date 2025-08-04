@@ -241,6 +241,9 @@ function concludeGame(winner) {
 
     gameActive = false;
     playAgain.style.display = "inline-block";
+    playerSelection.childNodes.forEach((child) => {
+        if (child.nodeType === 1) child.classList.remove("active-cursor");
+    });
 }
 
 function restartGame() {
@@ -252,4 +255,7 @@ function restartGame() {
     header.classList.remove("header-loss");
     computerChoiceDiv.style.display = "none";
     gameActive = true;
+    playerSelection.childNodes.forEach((child) => {
+        if (child.nodeType === 1) child.classList.add("active-cursor");
+    });
 }
