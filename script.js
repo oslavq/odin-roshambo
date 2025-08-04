@@ -153,6 +153,10 @@ function playGame(e) {
     const computerChoice = getComputerChoice();
     const humanChoice = parseGuiInput(e);
     const roundResult = playRound(humanChoice, computerChoice);
+    if (roundResult === undefined) {
+        console.log("failed to parse human input. This usually happens when the user clicks on the gap between buttons")
+        return;
+    }
     console.log(`Winner = ${roundResult}`);
     clearStyles();
     revealResult(roundResult, humanChoice, computerChoice);
